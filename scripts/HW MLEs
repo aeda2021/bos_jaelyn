@@ -1,0 +1,66 @@
+Q1: What do you expect a plot of the test statistic as a function of p to look like?
+A: The chi**2 test statistic will be smallest as the value of p is closest to the actually probability
+  of success
+  
+Q2: 
+ a) plot(p.test,chi)
+  abline(h= 1.92)
+  I would estimate the 95% CI as 0.1 - 0.4 from looking at the graph
+  
+Q3: 
+  a) The 95% CI is 0.149 - 0.259
+
+L2 <- dbinom(20, 100, p.test)
+plot(p.test, L2, type = 'l')
+  
+Q4: 
+  a) In each successive distribution, the right tail of the distribution gets heavier, with
+    the total probability less clustered around zero. 
+  b) As the degrees of freedom increase, so does the probability of better model fits through
+    chance, resulting in higher chi-squared values. 
+    
+Q5:
+  a) In the likelihood ratio test, the p value gives the probability that the ratio of the log likelihoods
+  of two models, one with an additional predictor, and one without, is drawn from a chi-squared distribution
+  with an expected value of zero. 
+  
+Q6: Interpret this output:
+  a) what does each chi-square statistic and p-value refer to?
+      The chi-squared statistics is the chi squared value comparing model i and model i-1. Hence, the first model does not have a 
+      chi-squared statistic. The p value can be interpreted as described in question 5. 
+  b) What null hypotheses are being tested?
+      The null hypotheses her is that adding and additional predictor (sex or age) does not change the likelihood of the model
+      given the data. 
+  c) Which variable(s) offer(s) significant predictive power?
+      The sex variable adds significant predictive power. 
+      
+Q8: Not all models contain subsets of the same variables
+
+Q9: Delta-AIC is the difference between the AIC of a given model and the AIC of the best model. Since AIC values are 
+  unitless, this statistic is more meaningful than a raw AIC
+
+Q10:The "best" model with the lowest AIC is Survived ~ SibSp*Age*Sex. The most important variables are sibling relationship
+(SbS), age, and age*SbS
+  
+Q11: 
+  a) The negative binomial distribution offers a slightly better fit on the basis of AIC. 
+  b) The likelihood of the negative binomial distribution is higher than the likelihood of the
+    poisson distribution, which is equivalent to stating that the probability of a random sample
+    generating the given data is higher when sampling from a negative binomial distribution than
+    it is when sampling from a poisson distribution.
+
+Q12: 
+  In the first scenario, the goal is to predict bee abundance from a more or less random set of variables.As part of this goal, we must
+  discover which variables are related to bee abundance at all. 
+  This might yield interesting results, but could also easily lead to drawing erroneous conclusions based purely on statistical artefacts. 
+  In the second scenario, the goal is still to predict bee abundance, but rather than focusing on discovering which variables have
+  any relationship with been abundance, we might be more concerned with the strength and predictive power of such relationships.
+  Moreover, some preexisting knowledge about our variables decreases the probability of finding purely spurious correlations.
+  It's definitely still possible, but the odds of interpreting pure noise as signal are somewhat lowered, since we already hypothesize
+  that our variables should be related to bee abundance, and *maybe* even have some ideas about the mechanisms behind such a relationship.
+  
+Q13: 
+  X4 and X12 seem to be the most important, followed by x1. However, it should be noted that all of the models have fairly low weight
+  
+  
+  
